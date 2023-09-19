@@ -4,6 +4,7 @@
 
 import argparse
 
+
 def args_parser():
     parser = argparse.ArgumentParser()
     # federated arguments
@@ -34,9 +35,10 @@ def args_parser():
                         help="Whether use max pooling rather than strided convolutions")
     parser.add_argument('--num_layers_keep', type=int, default=1, help='number layers to keep')
     parser.add_argument('--alg', type=str, default='fedavg', help='FL algorithm to use')
-    
+
     # algorithm-specific hyperparameters
-    parser.add_argument('--local_rep_ep', type=int, default=1, help="the number of local epochs for the representation for FedRep")
+    parser.add_argument('--local_rep_ep', type=int, default=1,
+                        help="the number of local epochs for the representation for FedRep")
     parser.add_argument('--lr_g', type=float, default=0.1, help="global learning rate for SCAFFOLD")
     parser.add_argument('--mu', type=float, default='0.1', help='FedProx parameter mu')
     parser.add_argument('--gmf', type=float, default='0', help='FedProx parameter gmf')
@@ -44,7 +46,8 @@ def args_parser():
     parser.add_argument('--alpha_l2gd', type=float, default='1', help='L2GD parameter alpha')
     parser.add_argument('--lambda_l2gd', type=float, default='0.5', help='L2GD parameter lambda')
     parser.add_argument('--lr_in', type=float, default='0.0001', help='PerFedAvg inner loop step size')
-    parser.add_argument('--bs_frac_in', type=float, default='0.8', help='PerFedAvg fraction of batch used for inner update')
+    parser.add_argument('--bs_frac_in', type=float, default='0.8',
+                        help='PerFedAvg fraction of batch used for inner update')
     parser.add_argument('--lam_ditto', type=float, default='1', help='Ditto parameter lambda')
 
     # other arguments
